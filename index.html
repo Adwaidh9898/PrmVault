@@ -1,0 +1,2781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#08090d">
+<meta name="description" content="PrmVault — Premium photo community.">
+<title>PrmVault — Premium Photo Community</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#08090d;
+  --card:#11141b;
+  --card2:#171a23;
+  --line:rgba(255,255,255,.08);
+  --text:#f7f7fb;
+  --muted:#9297a7;
+  --purple:#7c5cff;
+  --purple2:#a487ff;
+  --green:#25d98f;
+  --whatsapp:#25D366;
+  --red:#ff5577;
+  --gold:#ffd76a;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  min-height:100vh;
+  overflow-x:hidden;
+  background:
+    radial-gradient(circle at 10% -10%,rgba(124,92,255,.16),transparent 30%),
+    radial-gradient(circle at 100% 20%,rgba(37,217,143,.06),transparent 25%),
+    var(--bg);
+  color:var(--text);
+  font-family:Inter,system-ui,sans-serif;
+}
+
+button,
+input,
+textarea{
+  font:inherit;
+}
+
+button{
+  border:0;
+  cursor:pointer;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+.hidden{
+  display:none!important;
+}
+
+/* =========================
+   SPLASH
+========================= */
+
+#splash{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  background:#08090d;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  transition:.5s ease;
+}
+
+.splash-logo{
+  width:78px;
+  height:78px;
+  border-radius:24px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,#7c5cff,#a487ff);
+  font-family:"Space Grotesk";
+  font-weight:800;
+  font-size:29px;
+  color:white;
+  box-shadow:0 0 70px rgba(124,92,255,.4);
+  animation:logoPulse 1.7s infinite;
+}
+
+.splash-title{
+  margin-top:20px;
+  font-family:"Space Grotesk";
+  font-size:27px;
+  font-weight:700;
+}
+
+.splash-sub{
+  color:var(--muted);
+  margin-top:7px;
+  font-size:13px;
+}
+
+.loader{
+  width:110px;
+  height:4px;
+  background:#1a1d27;
+  border-radius:20px;
+  margin-top:28px;
+  overflow:hidden;
+}
+
+.loader span{
+  display:block;
+  width:35%;
+  height:100%;
+  border-radius:20px;
+  background:linear-gradient(90deg,#7c5cff,#a487ff);
+  animation:load 1.2s infinite;
+}
+
+@keyframes load{
+  0%{transform:translateX(-120%)}
+  100%{transform:translateX(420%)}
+}
+
+@keyframes logoPulse{
+  50%{transform:scale(1.05)}
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(8,9,13,.78);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--line);
+}
+
+.header-inner{
+  max-width:1050px;
+  height:70px;
+  margin:auto;
+  padding:0 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:11px;
+}
+
+.brand-logo{
+  width:40px;
+  height:40px;
+  border-radius:13px;
+  background:linear-gradient(135deg,#7c5cff,#9b7cff);
+  display:grid;
+  place-items:center;
+  font-family:"Space Grotesk";
+  font-weight:800;
+}
+
+.brand-name{
+  font-family:"Space Grotesk";
+  font-size:19px;
+  font-weight:700;
+}
+
+.brand-name span{
+  color:var(--purple2);
+}
+
+.header-actions{
+  display:flex;
+  gap:8px;
+}
+
+.icon-btn{
+  width:40px;
+  height:40px;
+  border-radius:13px;
+  background:#151822;
+  border:1px solid var(--line);
+  color:white;
+  display:grid;
+  place-items:center;
+  font-size:17px;
+  transition:.2s;
+}
+
+.icon-btn:hover{
+  transform:translateY(-2px);
+}
+
+/* =========================
+   MAIN
+========================= */
+
+main{
+  max-width:1050px;
+  margin:auto;
+  padding:24px 16px 110px;
+}
+
+.hero{
+  padding:25px 0 20px;
+}
+
+.hero-eyebrow{
+  color:var(--purple2);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:1.4px;
+  text-transform:uppercase;
+}
+
+.hero h1{
+  font-family:"Space Grotesk";
+  font-size:clamp(30px,6vw,52px);
+  line-height:1.05;
+  margin-top:9px;
+  letter-spacing:-1.5px;
+}
+
+.hero h1 span{
+  background:linear-gradient(90deg,#fff,#a487ff);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.hero p{
+  color:var(--muted);
+  max-width:610px;
+  line-height:1.6;
+  margin-top:12px;
+  font-size:14px;
+}
+
+/* =========================
+   PREMIUM STRIP
+========================= */
+
+.premium-strip{
+  background:
+    linear-gradient(135deg,rgba(124,92,255,.18),rgba(164,135,255,.05)),
+    var(--card);
+  border:1px solid rgba(124,92,255,.28);
+  border-radius:22px;
+  padding:17px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:14px;
+}
+
+.premium-left{
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+
+.premium-icon{
+  width:45px;
+  height:45px;
+  border-radius:15px;
+  display:grid;
+  place-items:center;
+  background:rgba(124,92,255,.15);
+  color:#b9a8ff;
+  font-size:21px;
+}
+
+.premium-title{
+  font-weight:800;
+}
+
+.premium-desc{
+  color:var(--muted);
+  font-size:12px;
+  margin-top:4px;
+}
+
+.primary-btn{
+  background:linear-gradient(135deg,#7c5cff,#967bff);
+  color:white;
+  border-radius:13px;
+  padding:11px 15px;
+  font-weight:800;
+  box-shadow:0 10px 25px rgba(124,92,255,.2);
+  white-space:nowrap;
+}
+
+.primary-btn:active{
+  transform:scale(.97);
+}
+
+.outline-btn{
+  background:transparent;
+  color:white;
+  border:1px solid var(--line);
+  border-radius:13px;
+  padding:11px 15px;
+  font-weight:700;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.section{
+  margin-top:30px;
+}
+
+.section-head{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  margin-bottom:13px;
+}
+
+.section-title{
+  font-family:"Space Grotesk";
+  font-size:20px;
+  font-weight:700;
+}
+
+.section-sub{
+  color:var(--muted);
+  font-size:12px;
+}
+
+/* =========================
+   TRENDING
+========================= */
+
+.trending-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:25px;
+  overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+
+.trending-image-wrap{
+  position:relative;
+  background:#0d0f14;
+  aspect-ratio:16/10;
+  overflow:hidden;
+}
+
+.trending-image{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.trending-badge{
+  position:absolute;
+  top:14px;
+  left:14px;
+  background:rgba(8,9,13,.82);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.12);
+  padding:7px 10px;
+  border-radius:10px;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.7px;
+}
+
+.trending-overlay{
+  position:absolute;
+  inset:auto 0 0;
+  height:35%;
+  background:linear-gradient(transparent,rgba(0,0,0,.75));
+}
+
+.trending-content{
+  padding:17px;
+}
+
+.trending-title{
+  font-family:"Space Grotesk";
+  font-size:19px;
+  font-weight:700;
+}
+
+.creator{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:8px;
+  color:#d7d9e1;
+  font-size:13px;
+}
+
+.verify{
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  background:var(--green);
+  color:#07150f;
+  display:inline-grid;
+  place-items:center;
+  font-size:10px;
+  font-weight:900;
+}
+
+.stats{
+  display:flex;
+  gap:16px;
+  margin-top:15px;
+  flex-wrap:wrap;
+}
+
+.stat{
+  color:var(--muted);
+  font-size:12px;
+}
+
+.stat b{
+  color:white;
+  font-size:13px;
+}
+
+.live{
+  color:var(--green)!important;
+}
+
+.trend-actions{
+  display:flex;
+  gap:9px;
+  margin-top:16px;
+}
+
+.action-btn{
+  flex:1;
+  min-height:44px;
+  border-radius:13px;
+  background:#181b24;
+  color:white;
+  border:1px solid var(--line);
+  font-weight:700;
+}
+
+.whatsapp{
+  background:var(--whatsapp);
+  color:#062b15;
+  border-color:transparent;
+}
+
+/* =========================
+   FEED
+========================= */
+
+.feed{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:15px;
+}
+
+.post{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:21px;
+  overflow:hidden;
+  min-width:0;
+}
+
+.post-image-wrap{
+  position:relative;
+  aspect-ratio:1/1;
+  background:#0c0e13;
+}
+
+.post-image{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.post-menu{
+  position:absolute;
+  top:10px;
+  right:10px;
+  width:35px;
+  height:35px;
+  border-radius:11px;
+  background:rgba(0,0,0,.62);
+  color:white;
+}
+
+.post-content{
+  padding:13px;
+}
+
+.post-user{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-size:13px;
+  font-weight:800;
+}
+
+.post-caption{
+  color:#c0c4d0;
+  font-size:12px;
+  line-height:1.45;
+  margin-top:8px;
+}
+
+.post-stats{
+  color:var(--muted);
+  font-size:11px;
+  margin-top:10px;
+}
+
+.post-actions{
+  display:flex;
+  gap:5px;
+  margin-top:11px;
+}
+
+.post-action{
+  flex:1;
+  background:#181b23;
+  color:#c8cbd5;
+  min-height:36px;
+  border-radius:10px;
+  font-size:12px;
+}
+
+.post-action.liked{
+  color:#ff6c88;
+}
+
+.post-action.saved{
+  color:#b29cff;
+}
+
+/* =========================
+   LOCK CARD
+========================= */
+
+.lock-card{
+  border:1px dashed rgba(124,92,255,.4);
+  background:rgba(124,92,255,.06);
+  border-radius:22px;
+  padding:27px 20px;
+  text-align:center;
+}
+
+.lock-icon{
+  font-size:30px;
+}
+
+.lock-card h3{
+  font-family:"Space Grotesk";
+  margin-top:10px;
+}
+
+.lock-card p{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.6;
+  max-width:430px;
+  margin:8px auto 15px;
+}
+
+/* =========================
+   BOTTOM NAV
+========================= */
+
+.bottom-nav{
+  position:fixed;
+  z-index:80;
+  bottom:12px;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(520px,calc(100% - 22px));
+  background:rgba(17,20,27,.9);
+  border:1px solid rgba(255,255,255,.1);
+  backdrop-filter:blur(22px);
+  border-radius:21px;
+  padding:7px;
+  display:flex;
+  gap:5px;
+  box-shadow:0 20px 50px rgba(0,0,0,.5);
+}
+
+.nav-btn{
+  flex:1;
+  background:transparent;
+  color:#777c8d;
+  border-radius:15px;
+  min-height:48px;
+  font-size:10px;
+  font-weight:700;
+}
+
+.nav-btn span{
+  display:block;
+  font-size:17px;
+  margin-bottom:3px;
+}
+
+.nav-btn.active{
+  background:#211d35;
+  color:#b6a7ff;
+}
+
+/* =========================
+   MODALS
+========================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:200;
+  background:rgba(0,0,0,.72);
+  backdrop-filter:blur(10px);
+  display:none;
+  align-items:flex-end;
+  justify-content:center;
+  padding:12px;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.sheet{
+  width:min(560px,100%);
+  max-height:90vh;
+  overflow:auto;
+  background:#11141b;
+  border:1px solid var(--line);
+  border-radius:27px;
+  padding:20px;
+  animation:sheetIn .25s ease;
+  box-shadow:0 30px 80px rgba(0,0,0,.55);
+}
+
+@keyframes sheetIn{
+  from{
+    transform:translateY(30px);
+    opacity:0;
+  }
+  to{
+    transform:none;
+    opacity:1;
+  }
+}
+
+.sheet-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:18px;
+}
+
+.sheet-title{
+  font-family:"Space Grotesk";
+  font-size:21px;
+  font-weight:700;
+}
+
+.close{
+  width:35px;
+  height:35px;
+  border-radius:11px;
+  background:#1a1d25;
+  color:#aaa;
+}
+
+/* =========================
+   PAYMENT STATUS
+========================= */
+
+.payment-status{
+  background:#151820;
+  border:1px solid rgba(255,85,119,.22);
+  border-radius:16px;
+  padding:14px;
+  margin-top:15px;
+}
+
+.payment-status-title{
+  color:#ff708d;
+  font-weight:800;
+  font-size:13px;
+}
+
+.payment-status-text{
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.5;
+  margin-top:5px;
+}
+
+.payment-loader{
+  height:4px;
+  border-radius:20px;
+  background:#242731;
+  overflow:hidden;
+  margin-top:11px;
+}
+
+.payment-loader span{
+  display:block;
+  width:35%;
+  height:100%;
+  background:#ff5577;
+  animation:paymentLoad 1.1s infinite;
+}
+
+@keyframes paymentLoad{
+  from{transform:translateX(-120%)}
+  to{transform:translateX(350%)}
+}
+
+.price{
+  font-family:"Space Grotesk";
+  font-size:42px;
+  font-weight:800;
+}
+
+.price small{
+  color:var(--muted);
+  font-size:13px;
+  font-family:Inter;
+}
+
+.features{
+  display:grid;
+  gap:9px;
+  margin:18px 0;
+}
+
+.feature{
+  padding:13px;
+  border:1px solid var(--line);
+  border-radius:13px;
+  background:#151821;
+  font-size:13px;
+}
+
+.feature b{
+  color:var(--green);
+}
+
+.disclaimer{
+  color:#777c8b;
+  font-size:10px;
+  line-height:1.5;
+  margin-top:11px;
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile-card{
+  text-align:center;
+}
+
+.avatar{
+  width:82px;
+  height:82px;
+  border-radius:25px;
+  margin:0 auto;
+  background:linear-gradient(135deg,#7c5cff,#a487ff);
+  display:grid;
+  place-items:center;
+  font-family:"Space Grotesk";
+  font-size:28px;
+  font-weight:800;
+}
+
+.profile-name{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  font-family:"Space Grotesk";
+  font-size:23px;
+  font-weight:700;
+  margin-top:13px;
+}
+
+.profile-status{
+  color:var(--muted);
+  font-size:12px;
+  margin-top:6px;
+}
+
+.input{
+  width:100%;
+  background:#181b23;
+  border:1px solid var(--line);
+  outline:0;
+  color:white;
+  border-radius:13px;
+  padding:13px;
+  margin-top:16px;
+}
+
+.input:focus{
+  border-color:rgba(124,92,255,.7);
+}
+
+.profile-buttons{
+  display:flex;
+  gap:8px;
+  margin-top:10px;
+}
+
+/* =========================
+   UPLOAD
+========================= */
+
+.upload-box{
+  border:1px dashed rgba(124,92,255,.45);
+  background:#0f1117;
+  border-radius:18px;
+  min-height:180px;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  cursor:pointer;
+}
+
+.upload-box img{
+  width:100%;
+  max-height:320px;
+  object-fit:contain;
+}
+
+.upload-placeholder{
+  text-align:center;
+  color:var(--muted);
+}
+
+.upload-placeholder strong{
+  color:white;
+  display:block;
+  margin-bottom:5px;
+}
+
+textarea.input{
+  resize:vertical;
+  min-height:90px;
+}
+
+.upload-note{
+  color:#777c8b;
+  font-size:10px;
+  margin-top:9px;
+  line-height:1.5;
+}
+
+/* =========================
+   TOAST
+========================= */
+
+#toast{
+  position:fixed;
+  z-index:999;
+  left:50%;
+  bottom:88px;
+  transform:translate(-50%,20px);
+  background:#181b23;
+  border:1px solid var(--line);
+  color:white;
+  border-radius:13px;
+  padding:11px 15px;
+  font-size:12px;
+  box-shadow:0 20px 60px rgba(0,0,0,.35);
+  opacity:0;
+  pointer-events:none;
+  transition:.25s;
+  max-width:calc(100% - 30px);
+  text-align:center;
+}
+
+#toast.show{
+  opacity:1;
+  transform:translate(-50%,0);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:650px){
+
+  .premium-strip{
+    align-items:flex-start;
+  }
+
+  .premium-strip .primary-btn{
+    padding:10px 11px;
+    font-size:11px;
+  }
+
+  .feed{
+    grid-template-columns:1fr 1fr;
+  }
+
+}
+
+@media(min-width:800px){
+
+  .feed{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+}
+
+@media(max-width:390px){
+
+  .brand-name{
+    font-size:17px;
+  }
+
+  .premium-desc{
+    font-size:10px;
+  }
+
+  .premium-left{
+    gap:8px;
+  }
+
+  .premium-icon{
+    width:38px;
+    height:38px;
+  }
+
+  .feed{
+    gap:9px;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     SPLASH
+========================= -->
+
+<div id="splash">
+
+  <div class="splash-logo">
+    PV
+  </div>
+
+  <div class="splash-title">
+    PrmVault
+  </div>
+
+  <div class="splash-sub">
+    Premium photo community
+  </div>
+
+  <div class="loader">
+    <span></span>
+  </div>
+
+</div>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+  <div class="header-inner">
+
+    <div class="brand">
+
+      <div class="brand-logo">
+        PV
+      </div>
+
+      <div class="brand-name">
+        Prm<span>Vault</span>
+      </div>
+
+    </div>
+
+    <div class="header-actions">
+
+      <button
+        class="icon-btn"
+        onclick="openUpload()"
+      >
+        ＋
+      </button>
+
+      <button
+        class="icon-btn"
+        onclick="openProfile()"
+      >
+        ●
+      </button>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main id="home">
+
+  <section class="hero">
+
+    <div class="hero-eyebrow">
+      PRIVATE • PREMIUM • COMMUNITY
+    </div>
+
+    <h1>
+      Your photos.<br>
+      <span>Your vault.</span>
+    </h1>
+
+    <p>
+      Share your best moments with the PrmVault community.
+      Premium members can publish photos and build their profile.
+    </p>
+
+  </section>
+
+
+  <!-- PREMIUM STRIP -->
+
+  <section>
+
+    <div class="premium-strip">
+
+      <div class="premium-left">
+
+        <div class="premium-icon">
+          ✦
+        </div>
+
+        <div>
+
+          <div
+            class="premium-title"
+            id="premiumTitle"
+          >
+            Unlock Premium
+          </div>
+
+          <div
+            class="premium-desc"
+            id="premiumDesc"
+          >
+            Upload photos • Verified profile • Premium access
+          </div>
+
+        </div>
+
+      </div>
+
+      <button
+        class="primary-btn"
+        id="premiumButton"
+        onclick="openPremium()"
+      >
+        ₹159 / month
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- TRENDING -->
+
+  <section
+    class="section"
+    id="trendingSection"
+  >
+
+    <div class="section-head">
+
+      <div>
+
+        <div class="section-title">
+          🔥 Trending now
+        </div>
+
+        <div class="section-sub">
+          The photo everyone is watching
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="trending-card">
+
+      <div class="trending-image-wrap">
+
+        <img
+          id="trendingImage"
+          class="trending-image"
+          src="Prm.png"
+          alt="PrmVault trending photo"
+          onerror="
+            this.style.display='none';
+            document.getElementById('trendFallback').style.display='grid'
+          "
+        >
+
+        <div
+          id="trendFallback"
+          style="
+            display:none;
+            position:absolute;
+            inset:0;
+            place-items:center;
+            color:#888;
+            background:#101219;
+            text-align:center;
+            padding:20px;
+          "
+        >
+
+          <div>
+
+            <strong
+              style="
+                color:white;
+                display:block;
+                margin-bottom:5px;
+              "
+            >
+              Prm.png not found
+            </strong>
+
+            Put <b>Prm.png</b> in the same folder as index.html.
+
+          </div>
+
+        </div>
+
+        <div class="trending-overlay"></div>
+
+        <div class="trending-badge">
+          #1 TRENDING
+        </div>
+
+      </div>
+
+
+      <div class="trending-content">
+
+        <div class="trending-title">
+          PrmVault Featured Photo
+        </div>
+
+        <div class="creator">
+
+          PrmVault
+
+          <span class="verify">
+            ✓
+          </span>
+
+        </div>
+
+
+        <div class="stats">
+
+          <div class="stat">
+            <b id="trendLikes">1.2K</b>
+            likes
+          </div>
+
+          <div class="stat">
+            <b id="trendViews">8.4K</b>
+            views
+          </div>
+
+          <div class="stat live">
+            ● Live demo
+          </div>
+
+        </div>
+
+
+        <div class="trend-actions">
+
+          <button
+            class="action-btn whatsapp"
+            onclick="shareTrendingWhatsApp()"
+          >
+            WhatsApp
+          </button>
+
+          <button
+            class="action-btn"
+            onclick="copyTrendingLink()"
+          >
+            Copy link
+          </button>
+
+        </div>
+
+
+        <div class="disclaimer">
+          
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- COMMUNITY -->
+
+  <section class="section">
+
+    <div class="section-head">
+
+      <div>
+
+        <div class="section-title">
+          Community
+        </div>
+
+        <div class="section-sub">
+          Fresh posts from PrmVault
+        </div>
+
+      </div>
+
+    </div>
+
+    <div
+      class="feed"
+      id="feed"
+    ></div>
+
+  </section>
+
+
+  <!-- UPLOAD LOCK -->
+
+  <section class="section">
+
+    <div
+      class="lock-card"
+      id="uploadLocked"
+    >
+
+      <div class="lock-icon">
+        🔒
+      </div>
+
+      <h3>
+        Premium members can post
+      </h3>
+
+      <p>
+        Upgrade to Premium for ₹159/month to upload your photos
+        and appear in the PrmVault community feed.
+      </p>
+
+      <button
+        class="primary-btn"
+        onclick="openPremium()"
+      >
+        Unlock Premium
+      </button>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<!-- =========================
+     BOTTOM NAV
+========================= -->
+
+<nav class="bottom-nav">
+
+  <button
+    class="nav-btn active"
+    onclick="scrollHome()"
+  >
+    <span>⌂</span>
+    Home
+  </button>
+
+  <button
+    class="nav-btn"
+    onclick="scrollTrending()"
+  >
+    <span>🔥</span>
+    Trending
+  </button>
+
+  <button
+    class="nav-btn"
+    onclick="openUpload()"
+  >
+    <span>＋</span>
+    Upload
+  </button>
+
+  <button
+    class="nav-btn"
+    onclick="openProfile()"
+  >
+    <span>●</span>
+    Profile
+  </button>
+
+</nav>
+
+
+<!-- =========================
+     PREMIUM MODAL
+========================= -->
+
+<div
+  class="modal"
+  id="premiumModal"
+>
+
+  <div class="sheet">
+
+    <div class="sheet-top">
+
+      <div class="sheet-title">
+        PrmVault Premium
+      </div>
+
+      <button
+        class="close"
+        onclick="closeModal('premiumModal')"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div class="price">
+      ₹159
+      <small>/ month</small>
+    </div>
+
+
+    <div class="features">
+
+      <div class="feature">
+        <b>✓</b> Upload unlimited photos
+      </div>
+
+      <div class="feature">
+        <b>✓</b> Green verified profile badge
+      </div>
+
+      <div class="feature">
+        <b>✓</b> Premium creator profile
+      </div>
+
+      <div class="feature">
+        <b>✓</b> Publish directly to community
+      </div>
+
+      <div class="feature">
+        <b>✓</b> Premium-only access
+      </div>
+
+    </div>
+
+
+    <button
+      class="primary-btn"
+      id="purchaseButton"
+      style="width:100%"
+      onclick="activatePremium()"
+    >
+      Try Premium Purchase
+    </button>
+
+
+    <div
+      id="paymentStatus"
+      class="payment-status hidden"
+    >
+
+      <div class="payment-status-title">
+        ⚠ Payment Server Busy
+      </div>
+
+      <div class="payment-status-text">
+        We're unable to process your Premium purchase right now.
+        Please try again later.
+      </div>
+
+      <div class="payment-loader">
+        <span></span>
+      </div>
+
+    </div>
+
+
+    <div class="disclaimer">
+    
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     PROFILE MODAL
+========================= -->
+
+<div
+  class="modal"
+  id="profileModal"
+>
+
+  <div class="sheet">
+
+    <div class="sheet-top">
+
+      <div class="sheet-title">
+        Your profile
+      </div>
+
+      <button
+        class="close"
+        onclick="closeModal('profileModal')"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div class="profile-card">
+
+      <div
+        class="avatar"
+        id="avatar"
+      >
+        P
+      </div>
+
+
+      <div class="profile-name">
+
+        <span id="profileDisplayName">
+          PrmUser
+        </span>
+
+        <span
+          class="verify hidden"
+          id="profileVerify"
+        >
+          ✓
+        </span>
+
+      </div>
+
+
+      <div
+        class="profile-status"
+        id="profileStatus"
+      >
+        Free member
+      </div>
+
+
+      <input
+        id="profileInput"
+        class="input"
+        maxlength="30"
+        placeholder="Display name"
+      >
+
+
+      <div class="profile-buttons">
+
+        <button
+          class="outline-btn"
+          style="flex:1"
+          onclick="saveProfile()"
+        >
+          Save name
+        </button>
+
+        <button
+          class="primary-btn"
+          style="flex:1"
+          onclick="openPremium()"
+        >
+          Premium
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     UPLOAD MODAL
+========================= -->
+
+<div
+  class="modal"
+  id="uploadModal"
+>
+
+  <div class="sheet">
+
+    <div class="sheet-top">
+
+      <div class="sheet-title">
+        Create a post
+      </div>
+
+      <button
+        class="close"
+        onclick="closeModal('uploadModal')"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div
+      class="upload-box"
+      onclick="document.getElementById('photoInput').click()"
+    >
+
+      <div
+        class="upload-placeholder"
+        id="uploadPlaceholder"
+      >
+
+        <strong>
+          ＋ Select a photo
+        </strong>
+
+        JPG, PNG, WEBP<br>
+        Maximum 5MB
+
+      </div>
+
+
+      <img
+        id="preview"
+        class="hidden"
+        alt="Preview"
+      >
+
+    </div>
+
+
+    <input
+      id="photoInput"
+      type="file"
+      accept="image/*"
+      class="hidden"
+      onchange="previewPhoto(event)"
+    >
+
+
+    <textarea
+      id="captionInput"
+      class="input"
+      maxlength="180"
+      placeholder="Write something about your photo..."
+    ></textarea>
+
+
+    <button
+      class="primary-btn"
+      style="width:100%;margin-top:10px"
+      onclick="publishPhoto()"
+    >
+      Publish photo
+    </button>
+
+
+    <div class="upload-note">
+      This demo stores uploaded images in your browser using localStorage.
+      They are not uploaded to a public server.
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div id="toast"></div>
+
+
+<script>
+
+/* =========================
+   STORAGE
+========================= */
+
+const STORAGE = {
+  premium:"prmvault_premium",
+  profile:"prmvault_profile",
+  photos:"prmvault_photos"
+};
+
+
+/* =========================
+   STATE
+========================= */
+
+let isPremium =
+  localStorage.getItem(STORAGE.premium) === "true";
+
+let profile =
+  localStorage.getItem(STORAGE.profile) || "PrmUser";
+
+let photos = [];
+
+
+/* =========================
+   DEFAULT COMMUNITY POSTS
+========================= */
+
+const defaultPosts = [
+
+  {
+    id:"demo1",
+    user:"MemeLord",
+    caption:"Bro really thought nobody would notice 😂",
+    image:"https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=900&q=85",
+    likes:4280,
+    views:18700,
+    liked:false,
+    saved:false,
+    demo:true
+  },
+
+  {
+    id:"demo2",
+    user:"PixelVibe",
+    caption:"Random photo, actually looks kinda fire 🔥",
+    image:"https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=900&q=85",
+    likes:3170,
+    views:14200,
+    liked:false,
+    saved:false,
+    demo:true
+  },
+
+  {
+    id:"demo3",
+    user:"DailyLaughs",
+    caption:"POV: You opened the fridge for the 10th time 😂",
+    image:"https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?auto=format&fit=crop&w=900&q=85",
+    likes:6940,
+    views:29300,
+    liked:false,
+    saved:false,
+    demo:true
+  },
+
+  {
+    id:"demo4",
+    user:"VibeCheck",
+    caption:"Weekend energy ✨",
+    image:"https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=85",
+    likes:2510,
+    views:9800,
+    liked:false,
+    saved:false,
+    demo:true
+  }
+
+];
+
+
+/* =========================
+   LOAD
+========================= */
+
+function loadPhotos(){
+
+  const stored =
+    localStorage.getItem(STORAGE.photos);
+
+  if(stored){
+
+    try{
+      photos=JSON.parse(stored);
+    }catch(error){
+      photos=[...defaultPosts];
+    }
+
+  }else{
+
+    photos=[...defaultPosts];
+
+    savePhotos();
+
+  }
+
+}
+
+
+/* =========================
+   SAVE
+========================= */
+
+function savePhotos(){
+
+  try{
+
+    localStorage.setItem(
+      STORAGE.photos,
+      JSON.stringify(photos)
+    );
+
+  }catch(error){
+
+    showToast(
+      "Storage full. Delete some uploaded photos."
+    );
+
+  }
+
+}
+
+
+/* =========================
+   INIT
+========================= */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  ()=>{
+
+    loadPhotos();
+
+    updatePremiumUI();
+
+    updateProfileUI();
+
+    renderFeed();
+
+    setTimeout(()=>{
+
+      const splash =
+        document.getElementById("splash");
+
+      splash.style.opacity="0";
+
+      setTimeout(()=>{
+        splash.style.display="none";
+      },500);
+
+    },1100);
+
+  }
+);
+
+
+/* =========================
+   PREMIUM
+========================= */
+
+function openPremium(){
+
+  document
+    .getElementById("premiumModal")
+    .classList.add("show");
+
+}
+
+
+/*
+  IMPORTANT:
+
+  This function intentionally DOES NOT
+  activate Premium.
+
+  It simulates a payment server failure.
+*/
+
+function activatePremium(){
+
+  const button =
+    document.getElementById("purchaseButton");
+
+  const status =
+    document.getElementById("paymentStatus");
+
+  button.disabled=true;
+
+  button.style.opacity=".65";
+
+  button.textContent="Processing...";
+
+  status.classList.remove("hidden");
+
+  showToast(
+    "Connecting to payment server..."
+  );
+
+  setTimeout(()=>{
+
+    button.disabled=false;
+
+    button.style.opacity="1";
+
+    button.textContent="Try Again";
+
+    showToast(
+      "⚠ Payment server busy"
+    );
+
+  },1800);
+
+}
+
+
+function updatePremiumUI(){
+
+  const title =
+    document.getElementById("premiumTitle");
+
+  const desc =
+    document.getElementById("premiumDesc");
+
+  const button =
+    document.getElementById("premiumButton");
+
+  const locked =
+    document.getElementById("uploadLocked");
+
+  if(isPremium){
+
+    title.textContent=
+      "Premium is active";
+
+    desc.textContent=
+      "You can upload photos and use Premium features.";
+
+    button.textContent=
+      "Premium ✓";
+
+    button.onclick=
+      ()=>{
+        showToast(
+          "Premium is already active."
+        );
+      };
+
+    locked.innerHTML=`
+
+      <div class="lock-icon">
+        📸
+      </div>
+
+      <h3>
+        Ready to post?
+      </h3>
+
+      <p>
+        You're a Premium member.
+        Upload your next photo to the PrmVault community.
+      </p>
+
+      <button
+        class="primary-btn"
+        onclick="openUpload()"
+      >
+        Upload photo
+      </button>
+
+    `;
+
+  }else{
+
+    title.textContent=
+      "Unlock Premium";
+
+    desc.textContent=
+      "Upload photos • Verified profile • Premium access";
+
+    button.textContent=
+      "₹159 / month";
+
+    button.onclick=
+      openPremium;
+
+  }
+
+}
+
+
+/* =========================
+   PROFILE
+========================= */
+
+function updateProfileUI(){
+
+  const display =
+    document.getElementById(
+      "profileDisplayName"
+    );
+
+  const input =
+    document.getElementById(
+      "profileInput"
+    );
+
+  const avatar =
+    document.getElementById(
+      "avatar"
+    );
+
+  const verify =
+    document.getElementById(
+      "profileVerify"
+    );
+
+  const status =
+    document.getElementById(
+      "profileStatus"
+    );
+
+  display.textContent=
+    profile;
+
+  input.value=
+    profile;
+
+  avatar.textContent=
+    profile.trim()
+      ? profile.trim()[0].toUpperCase()
+      : "P";
+
+  if(isPremium){
+
+    verify.classList.remove("hidden");
+
+    status.textContent=
+      "Premium member • Verified";
+
+  }else{
+
+    verify.classList.add("hidden");
+
+    status.textContent=
+      "Free member";
+
+  }
+
+}
+
+
+function openProfile(){
+
+  updateProfileUI();
+
+  document
+    .getElementById("profileModal")
+    .classList.add("show");
+
+}
+
+
+function saveProfile(){
+
+  const input =
+    document.getElementById(
+      "profileInput"
+    );
+
+  const value =
+    input.value.trim();
+
+  if(!value){
+
+    showToast(
+      "Enter a name first."
+    );
+
+    return;
+
+  }
+
+  profile=
+    value.substring(0,30);
+
+  localStorage.setItem(
+    STORAGE.profile,
+    profile
+  );
+
+  updateProfileUI();
+
+  showToast(
+    "Profile name saved ✓"
+  );
+
+}
+
+
+/* =========================
+   UPLOAD
+========================= */
+
+function openUpload(){
+
+  if(!isPremium){
+
+    openPremium();
+
+    return;
+
+  }
+
+  document
+    .getElementById("uploadModal")
+    .classList.add("show");
+
+}
+
+
+function resetUpload(){
+
+  document.getElementById(
+    "photoInput"
+  ).value="";
+
+  document.getElementById(
+    "captionInput"
+  ).value="";
+
+  document.getElementById(
+    "preview"
+  ).classList.add("hidden");
+
+  document.getElementById(
+    "preview"
+  ).removeAttribute("src");
+
+  document.getElementById(
+    "uploadPlaceholder"
+  ).classList.remove("hidden");
+
+}
+
+
+function previewPhoto(event){
+
+  const file =
+    event.target.files[0];
+
+  if(!file) return;
+
+  if(!file.type.startsWith("image/")){
+
+    showToast(
+      "Please select an image."
+    );
+
+    return;
+
+  }
+
+  if(file.size > 5*1024*1024){
+
+    showToast(
+      "Image must be under 5MB."
+    );
+
+    event.target.value="";
+
+    return;
+
+  }
+
+  const reader =
+    new FileReader();
+
+  reader.onload=e=>{
+
+    const preview =
+      document.getElementById(
+        "preview"
+      );
+
+    preview.src=
+      e.target.result;
+
+    preview.classList.remove(
+      "hidden"
+    );
+
+    document
+      .getElementById(
+        "uploadPlaceholder"
+      )
+      .classList.add("hidden");
+
+  };
+
+  reader.readAsDataURL(file);
+
+}
+
+
+function publishPhoto(){
+
+  if(!isPremium){
+
+    closeModal("uploadModal");
+
+    openPremium();
+
+    return;
+
+  }
+
+  const input =
+    document.getElementById(
+      "photoInput"
+    );
+
+  const file =
+    input.files[0];
+
+  if(!file){
+
+    showToast(
+      "Select a photo first."
+    );
+
+    return;
+
+  }
+
+  const caption =
+    document
+      .getElementById(
+        "captionInput"
+      )
+      .value
+      .trim();
+
+  const reader =
+    new FileReader();
+
+  reader.onload=e=>{
+
+    const post={
+
+      id:"user_"+Date.now(),
+
+      user:profile,
+
+      caption:
+        caption ||
+        "New photo on PrmVault ✨",
+
+      image:e.target.result,
+
+      likes:0,
+
+      views:0,
+
+      liked:false,
+
+      saved:false,
+
+      demo:false
+
+    };
+
+    photos.unshift(post);
+
+    savePhotos();
+
+    renderFeed();
+
+    resetUpload();
+
+    closeModal("uploadModal");
+
+    showToast(
+      "Photo published ✓"
+    );
+
+  };
+
+  reader.readAsDataURL(file);
+
+}
+
+
+/* =========================
+   FEED
+========================= */
+
+function renderFeed(){
+
+  const feed =
+    document.getElementById(
+      "feed"
+    );
+
+  if(!photos.length){
+
+    feed.innerHTML=`
+
+      <div
+        style="
+          grid-column:1/-1;
+          padding:30px;
+          text-align:center;
+          color:#888;
+        "
+      >
+        No posts yet.
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+  feed.innerHTML=
+    photos
+      .map(createPostHTML)
+      .join("");
+
+}
+
+
+function createPostHTML(post){
+
+  const likedClass =
+    post.liked
+      ? "liked"
+      : "";
+
+  const savedClass =
+    post.saved
+      ? "saved"
+      : "";
+
+  const verified =
+    post.user===profile && isPremium
+      ? `<span class="verify">✓</span>`
+      : "";
+
+  return `
+
+    <article class="post">
+
+      <div class="post-image-wrap">
+
+        <img
+          class="post-image"
+          src="${escapeHTML(post.image)}"
+          alt="Community photo"
+          loading="lazy"
+        >
+
+        ${
+          !post.demo
+          ? `
+            <button
+              class="post-menu"
+              onclick="showPostOptions('${post.id}')"
+            >
+              •••
+            </button>
+          `
+          : ""
+        }
+
+      </div>
+
+
+      <div class="post-content">
+
+        <div class="post-user">
+          ${escapeHTML(post.user)}
+          ${verified}
+        </div>
+
+        <div class="post-caption">
+          ${escapeHTML(post.caption)}
+        </div>
+
+        <div class="post-stats">
+          ${formatNumber(post.likes)} likes
+          •
+          ${formatNumber(post.views)} views
+        </div>
+
+        <div class="post-actions">
+
+          <button
+            class="post-action ${likedClass}"
+            onclick="toggleLike('${post.id}')"
+          >
+            ♥ ${post.liked?"Liked":"Like"}
+          </button>
+
+          <button
+            class="post-action ${savedClass}"
+            onclick="toggleBookmark('${post.id}')"
+          >
+            🔖
+          </button>
+
+          <button
+            class="post-action"
+            onclick="sharePost('${post.id}')"
+          >
+            ↗
+          </button>
+
+        </div>
+
+      </div>
+
+    </article>
+
+  `;
+
+}
+
+
+/* =========================
+   LIKE
+========================= */
+
+function toggleLike(id){
+
+  const post =
+    photos.find(
+      p=>p.id===id
+    );
+
+  if(!post) return;
+
+  post.liked=
+    !post.liked;
+
+  post.likes=
+    Math.max(
+      0,
+      post.likes+
+      (post.liked?1:-1)
+    );
+
+  savePhotos();
+
+  renderFeed();
+
+}
+
+
+/* =========================
+   BOOKMARK
+========================= */
+
+function toggleBookmark(id){
+
+  const post =
+    photos.find(
+      p=>p.id===id
+    );
+
+  if(!post) return;
+
+  post.saved=
+    !post.saved;
+
+  savePhotos();
+
+  renderFeed();
+
+  showToast(
+    post.saved
+      ? "Saved to bookmarks"
+      : "Removed from bookmarks"
+  );
+
+}
+
+
+/* =========================
+   SHARE POST
+========================= */
+
+function sharePost(id){
+
+  const post =
+    photos.find(
+      p=>p.id===id
+    );
+
+  if(!post) return;
+
+  const text=
+    `${post.user} on PrmVault\n\n`+
+    `${post.caption}\n\n`+
+    `❤️ ${formatNumber(post.likes)} likes\n`+
+    `👁 ${formatNumber(post.views)} views\n\n`+
+    `${location.href}`;
+
+  if(navigator.share){
+
+    navigator.share({
+      title:"PrmVault",
+      text:text
+    }).catch(()=>{});
+
+  }else{
+
+    if(navigator.clipboard){
+
+      navigator.clipboard
+        .writeText(text);
+
+    }
+
+    showToast(
+      "Post details copied ✓"
+    );
+
+  }
+
+}
+
+
+/* =========================
+   DELETE
+========================= */
+
+function showPostOptions(id){
+
+  const post =
+    photos.find(
+      p=>p.id===id
+    );
+
+  if(!post) return;
+
+  if(post.demo){
+
+    showToast(
+      "Community demo post"
+    );
+
+    return;
+
+  }
+
+  const remove =
+    confirm(
+      "Delete this photo from your browser?"
+    );
+
+  if(!remove) return;
+
+  photos=
+    photos.filter(
+      p=>p.id!==id
+    );
+
+  savePhotos();
+
+  renderFeed();
+
+  showToast(
+    "Photo deleted."
+  );
+
+}
+
+
+/* =========================
+   TRENDING
+========================= */
+
+let trendLikes=1200;
+let trendViews=8400;
+
+
+function updateTrending(){
+
+  const likeJump=
+    Math.floor(
+      Math.random()*8
+    )+1;
+
+  const viewJump=
+    Math.floor(
+      Math.random()*45
+    )+8;
+
+  trendLikes+=likeJump;
+
+  trendViews+=viewJump;
+
+  document.getElementById(
+    "trendLikes"
+  ).textContent=
+    formatNumber(trendLikes);
+
+  document.getElementById(
+    "trendViews"
+  ).textContent=
+    formatNumber(trendViews);
+
+}
+
+
+setInterval(
+  updateTrending,
+  4500
+);
+
+
+/* =========================
+   WHATSAPP
+========================= */
+
+function shareTrendingWhatsApp(){
+
+  const text=
+    `🔥 Check the #1 Trending photo on PrmVault!\n\n`+
+    `❤️ ${formatNumber(trendLikes)} likes\n`+
+    `👁 ${formatNumber(trendViews)} views\n\n`+
+    `${location.href}`;
+
+  const url=
+    "https://wa.me/?text="+
+    encodeURIComponent(text);
+
+  window.open(
+    url,
+    "_blank",
+    "noopener,noreferrer"
+  );
+
+}
+
+
+function copyTrendingLink(){
+
+  if(navigator.clipboard){
+
+    navigator.clipboard
+      .writeText(location.href)
+      .then(()=>{
+        showToast(
+          "PrmVault link copied ✓"
+        );
+      });
+
+  }else{
+
+    showToast(
+      "Copy the page URL from your browser."
+    );
+
+  }
+
+}
+
+
+/* =========================
+   FORMAT
+========================= */
+
+function formatNumber(number){
+
+  if(number>=1000000){
+
+    return(
+      (number/1000000)
+      .toFixed(1)
+      .replace(".0","")+
+      "M"
+    );
+
+  }
+
+  if(number>=1000){
+
+    return(
+      (number/1000)
+      .toFixed(1)
+      .replace(".0","")+
+      "K"
+    );
+
+  }
+
+  return String(number);
+
+}
+
+
+/* =========================
+   ESCAPE
+========================= */
+
+function escapeHTML(value){
+
+  return String(value)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+
+}
+
+
+/* =========================
+   MODALS
+========================= */
+
+function closeModal(id){
+
+  document
+    .getElementById(id)
+    .classList.remove("show");
+
+}
+
+
+document
+  .querySelectorAll(".modal")
+  .forEach(modal=>{
+
+    modal.addEventListener(
+      "click",
+      event=>{
+
+        if(event.target===modal){
+
+          modal.classList.remove(
+            "show"
+          );
+
+        }
+
+      }
+    );
+
+  });
+
+
+/* =========================
+   NAV
+========================= */
+
+function scrollHome(){
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+function scrollTrending(){
+
+  document
+    .getElementById(
+      "trendingSection"
+    )
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+let toastTimer;
+
+
+function showToast(message){
+
+  const toast =
+    document.getElementById(
+      "toast"
+    );
+
+  toast.textContent=
+    message;
+
+  toast.classList.add(
+    "show"
+  );
+
+  clearTimeout(
+    toastTimer
+  );
+
+  toastTimer=
+    setTimeout(()=>{
+
+      toast.classList.remove(
+        "show"
+      );
+
+    },2500);
+
+}
+
+</script>
+
+</body>
+</html>
