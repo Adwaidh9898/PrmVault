@@ -3,11 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#08070d">
 
-<title>PrmVault — Premium Photo Community</title>
-<meta name="description" content="PrmVault — a premium photo sharing and promotion community demo.">
-<meta name="robots" content="index,follow">
+<title>PrmVault — Discover Trending Photos</title>
+
+<meta name="description"
+content="Discover trending photos, explore a visual community, and learn about PrmVault Premium. Browse featured photos and creator profiles.">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical"
+href="https://prmvaultvp.vercel.app/">
+
+<meta property="og:title"
+content="PrmVault — Discover Trending Photos">
+
+<meta property="og:description"
+content="Explore trending photos and discover the PrmVault community.">
+
+<meta property="og:type" content="website">
+
+<meta property="og:url"
+content="https://prmvaultvp.vercel.app/">
+
+<meta name="theme-color" content="#07060b">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -141,8 +159,7 @@ button:disabled{
   margin:0 auto 18px;
   display:grid;
   place-items:center;
-  background:
-    linear-gradient(145deg,#9d84ff,#5b3de8);
+  background:linear-gradient(145deg,#9d84ff,#5b3de8);
   box-shadow:
     0 0 0 1px rgba(255,255,255,.12) inset,
     0 20px 55px rgba(124,92,255,.42);
@@ -587,8 +604,7 @@ header{
   width:100%;
   min-height:48px;
   border-radius:14px;
-  background:
-    linear-gradient(135deg,#9b7cff,#6546e8);
+  background:linear-gradient(135deg,#9b7cff,#6546e8);
   box-shadow:0 12px 30px rgba(124,92,255,.27);
   font-weight:800;
   font-size:13px;
@@ -767,8 +783,7 @@ header{
   overflow:auto;
   padding:20px 16px calc(22px + env(safe-area-inset-bottom));
   border-radius:28px 28px 0 0;
-  background:
-    linear-gradient(180deg,#15131f,#0e0d14);
+  background:linear-gradient(180deg,#15131f,#0e0d14);
   border:1px solid rgba(255,255,255,.09);
   box-shadow:0 -20px 70px rgba(0,0,0,.55);
   animation:sheet .3s ease;
@@ -1267,38 +1282,30 @@ header{
     </div>
 
     <div class="trending-slider">
-
       <div class="trending-track" id="trendingTrack">
 
         <div class="trending-slide">
-          <img
-            src="./Prm.png"
-            alt="PrmVault trending photo 1"
-            onerror="imageError(this)"
-          >
+          <img src="./Prm.png"
+               alt="PrmVault trending photo 1"
+               onerror="imageError(this)">
         </div>
 
         <div class="trending-slide">
-          <img
-            src="./Prm1.png"
-            alt="PrmVault trending photo 2"
-            onerror="imageError(this)"
-          >
+          <img src="./Prm1.png"
+               alt="PrmVault trending photo 2"
+               onerror="imageError(this)">
         </div>
 
         <div class="trending-slide">
-          <img
-            src="./Prm2.png"
-            alt="PrmVault trending photo 3"
-            onerror="imageError(this)"
-          >
+          <img src="./Prm2.png"
+               alt="PrmVault trending photo 3"
+               onerror="imageError(this)">
         </div>
 
       </div>
 
       <button class="slider-arrow left" onclick="previousSlide()">‹</button>
       <button class="slider-arrow right" onclick="nextSlide()">›</button>
-
     </div>
 
     <div class="trending-info">
@@ -1310,9 +1317,7 @@ header{
             <span class="verify">✓</span>
           </div>
 
-          <div class="photo-file" id="trendingPhotoName">
-            Prm.png
-          </div>
+          <div class="photo-file" id="trendingPhotoName">Prm.png</div>
         </div>
 
         <div class="live-label">● LIVE</div>
@@ -1324,20 +1329,11 @@ header{
       </div>
 
       <div class="trending-actions">
-
-        <button class="action-btn whatsapp" onclick="shareTrending()">
-          WhatsApp
-        </button>
-
-        <button class="action-btn" onclick="copyTrendingLink()">
-          Copy Link
-        </button>
-
+        <button class="action-btn whatsapp" onclick="shareTrending()">WhatsApp</button>
+        <button class="action-btn" onclick="copyTrendingLink()">Copy Link</button>
       </div>
 
-      <button class="boost-main" onclick="openBoost()">
-        🚀 Boost Visibility
-      </button>
+      <button class="boost-main" onclick="openBoost()">🚀 Boost Visibility</button>
 
       <div class="dots">
         <button class="slider-dot active" onclick="goToSlide(0)"></button>
@@ -1346,12 +1342,9 @@ header{
       </div>
 
     </div>
-
   </section>
 
-  <div class="notice">
-    
-  </div>
+  <div class="notice"></div>
 
   <!-- COMMUNITY -->
   <div class="section-head">
@@ -1362,7 +1355,6 @@ header{
   <div class="feed" id="feed"></div>
 
 </main>
-
 </div>
 
 <!-- BOTTOM NAV -->
@@ -1403,7 +1395,7 @@ header{
     <span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <circle cx="12" cy="8" r="4"/>
-        <path d="M4 21c.8-4 3.4-6 8 6"/>
+        <path d="M4 21c.8-4 3.4-6 8-6s7.2 2 8 6"/>
       </svg>
     </span>
     <span>Profile</span>
@@ -1413,7 +1405,6 @@ header{
 
 <!-- PREMIUM MODAL -->
 <div class="modal hidden" id="premiumModal" onclick="outsideClose(event,'premiumModal')">
-
   <div class="modal-box">
 
     <div class="modal-head">
@@ -1431,7 +1422,6 @@ header{
     </div>
 
     <div class="feature-list">
-
       <div class="feature">
         ✦ <b>Premium Uploads</b><br>
         Upload your own photos to the community.
@@ -1451,42 +1441,27 @@ header{
         ⚡ <b>Premium Profile</b><br>
         Stand out with a premium profile appearance.
       </div>
-
     </div>
 
-    <button
-      class="purchase"
-      id="purchaseButton"
-      onclick="activatePremium()"
-    >
+    <button class="purchase" id="purchaseButton" onclick="activatePremium()">
       Try Premium Purchase
     </button>
 
     <div class="payment-status hidden" id="paymentStatus">
       <h4>⚠ Payment Server Busy</h4>
-
       <p>
         We're unable to process your Premium purchase right now.
         Please try again later.
       </p>
-
-      <div class="status-loader">
-        <i></i>
-        <i></i>
-        <i></i>
-      </div>
+      <div class="status-loader"><i></i><i></i><i></i></div>
     </div>
 
-    <div class="disclaimer">
-      
-    </div>
-
+    <div class="disclaimer"></div>
   </div>
 </div>
 
 <!-- BOOST MODAL -->
 <div class="modal hidden" id="boostModal" onclick="outsideClose(event,'boostModal')">
-
   <div class="modal-box">
 
     <div class="modal-head">
@@ -1495,29 +1470,21 @@ header{
     </div>
 
     <div class="boost-hero">
-
       <div class="boost-icon">🚀</div>
-
       <h3>Promote this photo</h3>
-
       <p>
         Choose a promotion package to increase the
         visibility score of this featured photo.
       </p>
-
     </div>
 
     <div class="boost-plans">
-
       <div class="boost-plan">
         <div class="plan-left">
           <strong>₹49</strong>
           <span>24 hours promotion</span>
         </div>
-
-        <button class="plan-btn" onclick="startBoost(49,'24 hours')">
-          Boost
-        </button>
+        <button class="plan-btn" onclick="startBoost(49,'24 hours')">Boost</button>
       </div>
 
       <div class="boost-plan">
@@ -1525,10 +1492,7 @@ header{
           <strong>₹99</strong>
           <span>7 days promotion</span>
         </div>
-
-        <button class="plan-btn" onclick="startBoost(99,'7 days')">
-          Boost
-        </button>
+        <button class="plan-btn" onclick="startBoost(99,'7 days')">Boost</button>
       </div>
 
       <div class="boost-plan">
@@ -1536,78 +1500,44 @@ header{
           <strong>₹199</strong>
           <span>30 days promotion</span>
         </div>
-
-        <button class="plan-btn" onclick="startBoost(199,'30 days')">
-          Boost
-        </button>
+        <button class="plan-btn" onclick="startBoost(199,'30 days')">Boost</button>
       </div>
-
     </div>
 
     <!-- BOOSTERS -->
     <div class="boosters">
-
       <div class="boosters-head">
         <div class="boosters-title">🏆 Top Boosters</div>
         <div class="demo-tag">Demo data</div>
       </div>
 
       <div class="booster-row">
-
         <div class="rank">1</div>
-
         <div class="booster-avatar">A</div>
-
         <div class="booster-info">
-          <div class="booster-name">
-            Adwaidh
-          </div>
-
-          <div class="booster-label">
-            Visibility supporter
-          </div>
+          <div class="booster-name">Adwaidh</div>
+          <div class="booster-label">Visibility supporter</div>
         </div>
-
-        <div class="booster-money">
-          ₹199
-        </div>
-
+        <div class="booster-money">₹199</div>
       </div>
 
       <div class="booster-row">
-
         <div class="rank">2</div>
-
         <div class="booster-avatar">A</div>
-
         <div class="booster-info">
-          <div class="booster-name">
-            Aswin
-          </div>
-
-          <div class="booster-label">
-            Visibility supporter
-          </div>
+          <div class="booster-name">Aswin</div>
+          <div class="booster-label">Visibility supporter</div>
         </div>
-
-        <div class="booster-money">
-          ₹99
-        </div>
-
+        <div class="booster-money">₹99</div>
       </div>
-
     </div>
 
-    <div class="notice">
-      
-    </div>
-
+    <div class="notice"></div>
   </div>
 </div>
 
 <!-- BOOST PAYMENT STATUS -->
 <div class="modal hidden" id="boostPaymentModal">
-
   <div class="modal-box">
 
     <div class="modal-head">
@@ -1617,20 +1547,12 @@ header{
 
     <div class="payment-status" id="boostPaymentStatus"
          style="display:block;background:rgba(255,85,119,.07);">
-
       <h4>⚠ Payment Server Busy</h4>
-
       <p id="boostPaymentText">
         We're unable to process your Boost purchase right now.
         Please try again later.
       </p>
-
-      <div class="status-loader">
-        <i></i>
-        <i></i>
-        <i></i>
-      </div>
-
+      <div class="status-loader"><i></i><i></i><i></i></div>
     </div>
 
     <div class="disclaimer">
@@ -1638,13 +1560,11 @@ header{
       no real promotion is purchased, and no Google ranking
       guarantee is provided.
     </div>
-
   </div>
 </div>
 
 <!-- PROFILE MODAL -->
 <div class="modal hidden" id="profileModal" onclick="outsideClose(event,'profileModal')">
-
   <div class="modal-box">
 
     <div class="modal-head">
@@ -1653,32 +1573,20 @@ header{
     </div>
 
     <div class="profile-card">
+      <div class="profile-big" id="profileAvatar">P</div>
 
-      <div class="profile-big" id="profileAvatar">
-        P
-      </div>
+      <input class="text-input" id="profileInput"
+             maxlength="30" placeholder="Your name">
 
-      <input
-        class="text-input"
-        id="profileInput"
-        maxlength="30"
-        placeholder="Your name"
-      >
-
-      <button class="purchase" onclick="saveProfile()">
-        Save Profile
-      </button>
+      <button class="purchase" onclick="saveProfile()">Save Profile</button>
 
       <div class="profile-status" id="profileStatus"></div>
-
     </div>
-
   </div>
 </div>
 
 <!-- UPLOAD MODAL -->
 <div class="modal hidden" id="uploadModal" onclick="outsideClose(event,'uploadModal')">
-
   <div class="modal-box">
 
     <div class="modal-head">
@@ -1692,43 +1600,26 @@ header{
 
     <br>
 
-    <input
-      class="text-input"
-      id="captionInput"
-      maxlength="100"
-      placeholder="Write a caption..."
-    >
+    <input class="text-input" id="captionInput"
+           maxlength="100" placeholder="Write a caption...">
 
     <div class="upload-box">
-
       <div>📸 Choose an image</div>
 
-      <input
-        type="file"
-        id="photoInput"
-        accept="image/*"
-        onchange="previewPhoto(event)"
-      >
+      <input type="file" id="photoInput"
+             accept="image/*" onchange="previewPhoto(event)">
 
-      <img
-        id="uploadPreview"
-        class="upload-preview"
-        alt="Preview"
-      >
-
+      <img id="uploadPreview" class="upload-preview" alt="Preview">
     </div>
 
     <br>
 
-    <button class="purchase" onclick="uploadPhoto()">
-      Publish Photo
-    </button>
+    <button class="purchase" onclick="uploadPhoto()">Publish Photo</button>
 
     <div class="disclaimer">
       Demo limitation: uploaded images are stored locally in this browser.
       They are not automatically published to a public server.
     </div>
-
   </div>
 </div>
 
@@ -1773,13 +1664,8 @@ const trendingStats = [
 ];
 
 let currentSlide = 0;
-
-let trendLikes =
-  trendingStats[0].likes;
-
-let trendViews =
-  trendingStats[0].views;
-
+let trendLikes = trendingStats[0].likes;
+let trendViews = trendingStats[0].views;
 let carouselTimer;
 
 
@@ -1788,7 +1674,6 @@ let carouselTimer;
 ========================= */
 
 const demoPosts = [
-
   {
     id:"demo1",
     user:"MemeLord",
@@ -1797,7 +1682,6 @@ const demoPosts = [
     likes:4280,
     views:18700
   },
-
   {
     id:"demo2",
     user:"PixelVibe",
@@ -1806,7 +1690,6 @@ const demoPosts = [
     likes:3170,
     views:14200
   },
-
   {
     id:"demo3",
     user:"DailyLaughs",
@@ -1815,7 +1698,6 @@ const demoPosts = [
     likes:6940,
     views:29300
   },
-
   {
     id:"demo4",
     user:"VibeCheck",
@@ -1824,7 +1706,6 @@ const demoPosts = [
     likes:2510,
     views:9800
   }
-
 ];
 
 
@@ -1835,13 +1716,9 @@ const demoPosts = [
 document.addEventListener("DOMContentLoaded",()=>{
 
   loadPhotos();
-
   renderFeed();
-
   updateProfileUI();
-
   goToSlide(0);
-
   startCarousel();
 
   setTimeout(()=>{
@@ -1865,26 +1742,21 @@ function formatNumber(number){
     return (number/1000).toFixed(1)+"K";
 
   return number.toString();
-
 }
 
 
 function showToast(message){
 
-  const toast =
-    document.getElementById("toast");
+  const toast = document.getElementById("toast");
 
   toast.textContent = message;
-
   toast.classList.add("show");
 
   clearTimeout(window.toastTimer);
 
-  window.toastTimer =
-    setTimeout(()=>{
-      toast.classList.remove("show");
-    },2200);
-
+  window.toastTimer = setTimeout(()=>{
+    toast.classList.remove("show");
+  },2200);
 }
 
 
@@ -1900,8 +1772,7 @@ function imageError(img){
 
   if(!parent.querySelector(".image-error")){
 
-    const error =
-      document.createElement("div");
+    const error = document.createElement("div");
 
     error.className = "image-error";
 
@@ -1925,7 +1796,6 @@ function imageError(img){
 
     parent.appendChild(error);
   }
-
 }
 
 
@@ -1937,84 +1807,52 @@ function goToSlide(index){
 
   currentSlide = index;
 
-  const track =
-    document.getElementById("trendingTrack");
+  const track = document.getElementById("trendingTrack");
 
   if(track){
-
     track.style.transform =
       `translateX(-${index * 33.333333}%)`;
-
   }
 
-  document
-    .querySelectorAll(".slider-dot")
-    .forEach((dot,i)=>{
+  document.querySelectorAll(".slider-dot").forEach((dot,i)=>{
+    dot.classList.toggle("active",i === index);
+  });
 
-      dot.classList.toggle(
-        "active",
-        i === index
-      );
-
-    });
-
-  const photoName =
-    document.getElementById(
-      "trendingPhotoName"
-    );
+  const photoName = document.getElementById("trendingPhotoName");
 
   if(photoName)
-    photoName.textContent =
-      trendingPhotos[index];
+    photoName.textContent = trendingPhotos[index];
 
-  trendLikes =
-    trendingStats[index].likes;
+  trendLikes = trendingStats[index].likes;
+  trendViews = trendingStats[index].views;
 
-  trendViews =
-    trendingStats[index].views;
-
-  const likes =
-    document.getElementById("trendLikes");
-
-  const views =
-    document.getElementById("trendViews");
+  const likes = document.getElementById("trendLikes");
+  const views = document.getElementById("trendViews");
 
   if(likes)
-    likes.textContent =
-      formatNumber(trendLikes);
+    likes.textContent = formatNumber(trendLikes);
 
   if(views)
-    views.textContent =
-      formatNumber(trendViews);
+    views.textContent = formatNumber(trendViews);
 
-  const count =
-    document.getElementById("slideCount");
+  const count = document.getElementById("slideCount");
 
   if(count)
-    count.textContent =
-      `${index+1} / 3`;
+    count.textContent = `${index+1} / 3`;
 }
 
 
 function nextSlide(){
 
-  goToSlide(
-    (currentSlide + 1) % 3
-  );
-
+  goToSlide((currentSlide + 1) % 3);
   restartCarousel();
-
 }
 
 
 function previousSlide(){
 
-  goToSlide(
-    (currentSlide - 1 + 3) % 3
-  );
-
+  goToSlide((currentSlide - 1 + 3) % 3);
   restartCarousel();
-
 }
 
 
@@ -2022,22 +1860,14 @@ function startCarousel(){
 
   clearInterval(carouselTimer);
 
-  carouselTimer =
-    setInterval(()=>{
-
-      goToSlide(
-        (currentSlide + 1) % 3
-      );
-
-    },4500);
-
+  carouselTimer = setInterval(()=>{
+    goToSlide((currentSlide + 1) % 3);
+  },4500);
 }
 
 
 function restartCarousel(){
-
   startCarousel();
-
 }
 
 
@@ -2047,18 +1877,15 @@ function restartCarousel(){
 
 function shareTrending(){
 
-  const file =
-    trendingPhotos[currentSlide];
+  const file = trendingPhotos[currentSlide];
 
   const text =
     `🔥 Check out this trending photo on PrmVault!\n\n${file}\n\nPrmVault`;
 
   const url =
-    "https://wa.me/?text=" +
-    encodeURIComponent(text);
+    "https://wa.me/?text=" + encodeURIComponent(text);
 
   window.open(url,"_blank");
-
 }
 
 
@@ -2068,29 +1895,20 @@ async function copyTrendingLink(){
     `PrmVault Trending — ${trendingPhotos[currentSlide]}`;
 
   try{
-
     await navigator.clipboard.writeText(text);
-
     showToast("✓ Link copied");
-
   }catch{
-
     showToast("Copy unavailable");
-
   }
-
 }
 
 
 function goTrending(){
 
-  document
-    .querySelector(".trending-card")
-    .scrollIntoView({
-      behavior:"smooth",
-      block:"center"
-    });
-
+  document.querySelector(".trending-card").scrollIntoView({
+    behavior:"smooth",
+    block:"center"
+  });
 }
 
 
@@ -2100,49 +1918,33 @@ function goTrending(){
 
 function openPremium(){
 
-  document
-    .getElementById("premiumModal")
+  document.getElementById("premiumModal")
     .classList.remove("hidden");
-
 }
 
 
 function activatePremium(){
 
-  const button =
-    document.getElementById("purchaseButton");
-
-  const status =
-    document.getElementById("paymentStatus");
+  const button = document.getElementById("purchaseButton");
+  const status = document.getElementById("paymentStatus");
 
   button.disabled = true;
-
   button.style.opacity = ".65";
-
-  button.textContent =
-    "Processing...";
+  button.textContent = "Processing...";
 
   status.classList.remove("hidden");
 
-  showToast(
-    "Connecting to payment server..."
-  );
+  showToast("Connecting to payment server...");
 
   setTimeout(()=>{
 
     button.disabled = false;
-
     button.style.opacity = "1";
+    button.textContent = "Try Again";
 
-    button.textContent =
-      "Try Again";
-
-    showToast(
-      "⚠ Payment server busy"
-    );
+    showToast("⚠ Payment server busy");
 
   },1800);
-
 }
 
 
@@ -2152,10 +1954,8 @@ function activatePremium(){
 
 function openBoost(){
 
-  document
-    .getElementById("boostModal")
+  document.getElementById("boostModal")
     .classList.remove("hidden");
-
 }
 
 
@@ -2164,14 +1964,10 @@ function startBoost(amount,duration){
   closeModal("boostModal");
 
   const paymentModal =
-    document.getElementById(
-      "boostPaymentModal"
-    );
+    document.getElementById("boostPaymentModal");
 
   const paymentText =
-    document.getElementById(
-      "boostPaymentText"
-    );
+    document.getElementById("boostPaymentText");
 
   paymentText.innerHTML =
     `We're unable to process the ₹${amount}
@@ -2180,18 +1976,11 @@ function startBoost(amount,duration){
 
   paymentModal.classList.remove("hidden");
 
-  showToast(
-    `Processing ₹${amount} Boost...`
-  );
+  showToast(`Processing ₹${amount} Boost...`);
 
   setTimeout(()=>{
-
-    showToast(
-      "⚠ Boost payment server busy"
-    );
-
+    showToast("⚠ Boost payment server busy");
   },1800);
-
 }
 
 
@@ -2201,12 +1990,10 @@ function startBoost(amount,duration){
 
 function closeModal(id){
 
-  const modal =
-    document.getElementById(id);
+  const modal = document.getElementById(id);
 
   if(modal)
     modal.classList.add("hidden");
-
 }
 
 
@@ -2214,7 +2001,6 @@ function outsideClose(event,id){
 
   if(event.target.id === id)
     closeModal(id);
-
 }
 
 
@@ -2224,81 +2010,50 @@ function outsideClose(event,id){
 
 function openProfile(){
 
-  document
-    .getElementById("profileModal")
+  document.getElementById("profileModal")
     .classList.remove("hidden");
 
-  document
-    .getElementById("profileInput")
-    .value = profile;
+  document.getElementById("profileInput").value = profile;
 
   updateProfileUI();
-
 }
 
 
 function saveProfile(){
 
-  const input =
-    document.getElementById(
-      "profileInput"
-    );
-
-  const value =
-    input.value.trim();
+  const input = document.getElementById("profileInput");
+  const value = input.value.trim();
 
   if(!value){
-
     showToast("Enter a name first");
-
     return;
-
   }
 
   profile = value;
 
-  localStorage.setItem(
-    STORAGE.profile,
-    profile
-  );
+  localStorage.setItem(STORAGE.profile,profile);
 
   updateProfileUI();
-
   renderFeed();
 
   showToast("✓ Profile updated");
-
 }
 
 
 function updateProfileUI(){
 
-  const avatar =
-    document.getElementById(
-      "profileAvatar"
-    );
+  const avatar = document.getElementById("profileAvatar");
 
-  if(avatar){
+  if(avatar)
+    avatar.textContent = profile.charAt(0).toUpperCase();
 
-    avatar.textContent =
-      profile.charAt(0).toUpperCase();
-
-  }
-
-  const status =
-    document.getElementById(
-      "profileStatus"
-    );
+  const status = document.getElementById("profileStatus");
 
   if(status){
-
-    status.innerHTML =
-      isPremium
+    status.innerHTML = isPremium
       ? "✦ Premium member • Verified"
       : "Free member";
-
   }
-
 }
 
 
@@ -2309,150 +2064,90 @@ function updateProfileUI(){
 function openUpload(){
 
   if(!isPremium){
-
-    showToast(
-      "Premium is required to upload"
-    );
-
+    showToast("Premium is required to upload");
     openPremium();
-
     return;
-
   }
 
-  document
-    .getElementById("uploadModal")
+  document.getElementById("uploadModal")
     .classList.remove("hidden");
-
 }
 
 
 function previewPhoto(event){
 
-  const file =
-    event.target.files[0];
+  const file = event.target.files[0];
 
   if(!file)
     return;
 
   if(file.size > 5 * 1024 * 1024){
 
-    showToast(
-      "Image must be under 5MB"
-    );
-
+    showToast("Image must be under 5MB");
     event.target.value = "";
-
     return;
-
   }
 
-  const preview =
-    document.getElementById(
-      "uploadPreview"
-    );
+  const preview = document.getElementById("uploadPreview");
 
-  preview.src =
-    URL.createObjectURL(file);
-
-  preview.style.display =
-    "block";
-
+  preview.src = URL.createObjectURL(file);
+  preview.style.display = "block";
 }
 
 
 function uploadPhoto(){
 
   if(!isPremium){
-
     closeModal("uploadModal");
-
     openPremium();
-
     return;
-
   }
 
-  const input =
-    document.getElementById(
-      "photoInput"
-    );
+  const input = document.getElementById("photoInput");
 
   const caption =
-    document.getElementById(
-      "captionInput"
-    ).value.trim();
+    document.getElementById("captionInput").value.trim();
 
-  const file =
-    input.files[0];
+  const file = input.files[0];
 
   if(!file){
-
     showToast("Choose a photo first");
-
     return;
-
   }
 
-  const reader =
-    new FileReader();
+  const reader = new FileReader();
 
   reader.onload = function(e){
 
     const post = {
-
-      id:
-        "local_" +
-        Date.now(),
-
-      user:
-        profile,
-
-      caption:
-        caption ||
-        "My latest PrmVault photo ✨",
-
-      image:
-        e.target.result,
-
+      id:"local_" + Date.now(),
+      user:profile,
+      caption:caption || "My latest PrmVault photo ✨",
+      image:e.target.result,
       likes:0,
-
       views:0,
-
       local:true
-
     };
 
     photos.unshift(post);
 
     savePhotos();
-
     renderFeed();
 
     closeModal("uploadModal");
 
     input.value = "";
 
-    document.getElementById(
-      "captionInput"
-    ).value = "";
+    document.getElementById("captionInput").value = "";
 
-    const preview =
-      document.getElementById(
-        "uploadPreview"
-      );
+    const preview = document.getElementById("uploadPreview");
 
-    preview.style.display =
-      "none";
+    preview.style.display = "none";
 
-    showToast(
-      "✓ Photo published"
-    );
-
+    showToast("✓ Photo published");
   };
 
   reader.readAsDataURL(file);
-
 }
 
 
@@ -2464,50 +2159,28 @@ function loadPhotos(){
 
   try{
 
-    const saved =
-      localStorage.getItem(
-        STORAGE.photos
-      );
+    const saved = localStorage.getItem(STORAGE.photos);
 
     if(saved){
-
-      photos =
-        JSON.parse(saved);
-
+      photos = JSON.parse(saved);
     }else{
-
       photos = [];
-
       savePhotos();
-
     }
 
   }catch{
-
     photos = [];
-
   }
-
 }
 
 
 function savePhotos(){
 
   try{
-
-    localStorage.setItem(
-      STORAGE.photos,
-      JSON.stringify(photos)
-    );
-
+    localStorage.setItem(STORAGE.photos,JSON.stringify(photos));
   }catch{
-
-    showToast(
-      "Storage limit reached"
-    );
-
+    showToast("Storage limit reached");
   }
-
 }
 
 
@@ -2517,78 +2190,53 @@ function savePhotos(){
 
 function renderFeed(){
 
-  const feed =
-    document.getElementById("feed");
+  const feed = document.getElementById("feed");
 
   if(!feed)
     return;
 
-  const all =
-    [...photos,...demoPosts];
+  const all = [...photos,...demoPosts];
 
   if(!all.length){
 
-    feed.innerHTML =
-      `<div class="empty">
-        No photos yet.
-      </div>`;
-
+    feed.innerHTML = `<div class="empty">No photos yet.</div>`;
     return;
-
   }
 
-  feed.innerHTML =
-    all.map(post=>{
+  feed.innerHTML = all.map(post=>{
 
-      const first =
-        (post.user || "U")
-        .charAt(0)
-        .toUpperCase();
+    const first = (post.user || "U").charAt(0).toUpperCase();
 
-      return `
+    return `
+      <article class="post">
 
-        <article class="post">
+        <img
+          class="post-img"
+          src="${escapeHtml(post.image)}"
+          alt="Community photo"
+          loading="lazy"
+          onerror="this.style.opacity='.2'"
+        >
 
-          <img
-            class="post-img"
-            src="${escapeHtml(post.image)}"
-            alt="Community photo"
-            loading="lazy"
-            onerror="this.style.opacity='.2'"
-          >
+        <div class="post-body">
 
-          <div class="post-body">
-
-            <div class="post-user">
-
-              <div class="post-avatar">
-                ${escapeHtml(first)}
-              </div>
-
-              <span>
-                ${escapeHtml(post.user)}
-              </span>
-
-            </div>
-
-            <div class="post-text">
-              ${escapeHtml(post.caption)}
-            </div>
-
-            <div class="post-stats">
-              ❤️ ${formatNumber(post.likes)}
-              &nbsp; • &nbsp;
-              👁 ${formatNumber(post.views)}
-            </div>
-
+          <div class="post-user">
+            <div class="post-avatar">${escapeHtml(first)}</div>
+            <span>${escapeHtml(post.user)}</span>
           </div>
 
-        </article>
+          <div class="post-text">${escapeHtml(post.caption)}</div>
 
-      `;
+          <div class="post-stats">
+            ❤️ ${formatNumber(post.likes)}
+            &nbsp; • &nbsp;
+            👁 ${formatNumber(post.views)}
+          </div>
 
-    }).join("");
-
+        </div>
+      </article>
+    `;
+  }).join("");
 }
 
 
@@ -2604,7 +2252,6 @@ function escapeHtml(value){
     .replaceAll(">","&gt;")
     .replaceAll('"',"&quot;")
     .replaceAll("'","&#039;");
-
 }
 
 
@@ -2618,7 +2265,6 @@ function scrollTopPage(){
     top:0,
     behavior:"smooth"
   });
-
 }
 
 
@@ -2639,9 +2285,7 @@ document.addEventListener("keydown",(event)=>{
     ].forEach(closeModal);
 
   }
-
 });
-
 </script>
 
 </body>
